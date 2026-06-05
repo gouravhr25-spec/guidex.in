@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GuideX is an India-based recruitment firm helping candidates find verified opportunities and employers hire screened talent across office and remote roles.">
+  <title>GuideX | The future starts here</title>
+  <link rel="icon" href="guidex-logo.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0D1B2A;
+      --navy-2: #10243A;
+      --blue: #1E6FD9;
+      --blue-soft: #EAF3FF;
+      --gold: #E8A020;
+      --white: #FFFFFF;
+      --soft: #F5F8FC;
+      --ink: #101927;
+      --muted: #667589;
+      --line: #DDE6F1;
+      --shadow: 0 18px 50px rgba(13, 27, 42, 0.12);
+      --container: 1160px;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--ink);
+      font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--navy);
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    img,
+    svg {
+      display: block;
+    }
+
+    section[id] {
+      scroll-margin-top: 92px;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--container));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section {
+      position: relative;
+      padding: 104px 0;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .section-soft {
+      background: var(--soft);
+    }
+
+    .section-dark {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .section-dark h2,
+    .section-dark h3 {
+      color: var(--white);
+    }
+
+    .section-dark p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .section-grid::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(13, 27, 42, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13, 27, 42, 0.055) 1px, transparent 1px);
+      background-size: 62px 62px;
+      pointer-events: none;
+    }
+
+    .section-dark.section-grid::before {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--blue);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    .section-dark .eyebrow {
+      color: #9DCAFF;
+    }
+
+    .section-title {
+      max-width: 800px;
+      font-size: clamp(2.25rem, 5vw, 4.8rem);
+    }
+
+    .section-copy {
+      max-width: 720px;
+      margin-top: 18px;
+      font-size: 1.08rem;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 44px;
+      margin-bottom: 42px;
+    }
+
+    .section-head .section-copy {
+      max-width: 440px;
+      margin-top: 0;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 64px;
+      align-items: center;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 900;
+      overflow: hidden;
+      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 14px 34px rgba(30, 111, 217, 0.24);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: #175EC0;
+    }
+
+    .btn-outline {
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--line);
+    }
+
+    .btn-outline:hover,
+    .btn-outline:focus-visible {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      padding: 26px;
+      transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(30, 111, 217, 0.32);
+      box-shadow: var(--shadow);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-wrap {
+      width: min(100% - 40px, var(--container));
+      height: 82px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .brand-logo {
+      width: 172px;
+      height: 56px;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      color: var(--navy);
+      font-size: 0.95rem;
+      font-weight: 900;
+      transition: color 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--blue);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--navy);
+      padding: 0;
+    }
+
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .nav-toggle span {
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    .nav-toggle span::before {
+      top: -7px;
+    }
+
+    .nav-toggle span::after {
+      top: 7px;
+    }
+
+    .nav-toggle[aria-expanded="true"] span {
+      background: transparent;
+    }
+
+    .nav-toggle[aria-expanded="true"] span::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .nav-toggle[aria-expanded="true"] span::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: grid;
+      place-items: center;
+      padding: 110px 24px 40px;
+      background: rgba(255, 255, 255, 0.98);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-12px);
+      transition: opacity 220ms ease, visibility 220ms ease, transform 220ms ease;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .mobile-menu nav {
+      width: min(100%, 430px);
+      display: grid;
+      gap: 12px;
+    }
+
+    .mobile-menu a {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--navy);
+      font-size: 1.22rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .mobile-menu .mobile-cta {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 82px);
+      display: grid;
+      align-items: center;
+      padding: 112px 0;
+      background:
+        radial-gradient(circle at 86% 12%, rgba(30, 111, 217, 0.16), transparent 32%),
+        linear-gradient(180deg, #FFFFFF 0%, #F6FAFF 100%);
+      overflow: hidden;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      gap: 68px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      max-width: 860px;
+      font-size: clamp(3.05rem, 6.4vw, 6.3rem);
+    }
+
+    .hero h1 span {
+      color: var(--blue);
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin: 24px 0 32px;
+      font-size: clamp(1.08rem, 1.8vw, 1.22rem);
+    }
+
+    .proof-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .proof-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.84);
+      color: var(--navy);
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    .proof-pill::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 4px rgba(30, 111, 217, 0.12);
+    }
+
+    .hero-board {
+      position: relative;
+      display: grid;
+      gap: 16px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-board::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(13, 27, 42, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13, 27, 42, 0.05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+      pointer-events: none;
+    }
+
+    .status-card {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 10px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--white);
+    }
+
+    .status-card small {
+      color: var(--blue);
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .status-card h3 {
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .status-card.highlight {
+      border-color: rgba(30, 111, 217, 0.3);
+      background: linear-gradient(135deg, #FFFFFF, #F0F7FF);
+    }
+
+    .hero-note {
+      position: relative;
+      z-index: 2;
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .hero-note p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .about-copy {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .quote-card blockquote {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(1.4rem, 3vw, 2.15rem);
+      font-weight: 900;
+      line-height: 1.24;
+      letter-spacing: -0.03em;
+    }
+
+    .quote-card cite {
+      display: block;
+      margin-top: 24px;
+      color: var(--blue);
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .industry-grid,
+    .why-grid,
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .industry-card h3,
+    .why-card h3,
+    .step-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      letter-spacing: -0.015em;
+    }
+
+    .opening-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .opening-card {
+      position: relative;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .opening-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: linear-gradient(90deg, var(--blue), var(--gold));
+    }
+
+    .opening-label {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-bottom: 18px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .opening-card h3 {
+      font-size: clamp(1.6rem, 3vw, 2.45rem);
+    }
+
+    .opening-card ul {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      margin: 18px 0 0;
+      list-style: none;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .community-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 28px;
+      align-items: center;
+      padding: clamp(28px, 5vw, 46px);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 92% 12%, rgba(232, 160, 32, 0.18), transparent 30%),
+        var(--navy);
+      color: var(--white);
+    }
+
+    .community-panel h2 {
+      color: var(--white);
+    }
+
+    .community-panel p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .community-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .community-item {
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    .steps-grid,
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .benefit-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-bottom: 28px;
+    }
+
+    .step-number {
+      display: inline-grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 900;
+    }
+
+    .benefit-card {
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .stars {
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .testimonial-card blockquote {
+      margin: 0 0 22px;
+      color: var(--navy);
+      font-style: italic;
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    .testimonial-card strong {
+      display: block;
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .testimonial-card span {
+      color: var(--muted);
+    }
+
+    .contact-details {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .contact-item span {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--blue);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .contact-item strong,
+    .contact-item a {
+      color: var(--navy);
+      font-weight: 900;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 15px;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .form-field label {
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      min-height: 52px;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--white);
+      color: var(--navy);
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(30, 111, 217, 0.12);
+    }
+
+    .form-field textarea {
+      min-height: 136px;
+      resize: vertical;
+    }
+
+    .form-status {
+      min-height: 24px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .form-status.success {
+      color: #16894C;
+    }
+
+    .form-status.error {
+      color: #B42318;
+    }
+
+    .site-footer {
+      padding: 64px 0 28px;
+      background: #071321;
+      color: var(--white);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr repeat(3, minmax(0, 0.75fr));
+      gap: 38px;
+      align-items: start;
+    }
+
+    .footer-logo {
+      width: 190px;
+      height: 64px;
+      object-fit: contain;
+      object-position: left center;
+      padding: 6px;
+      border-radius: 12px;
+      background: var(--white);
+    }
+
+    .footer-brand p {
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 700;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 14px;
+      color: var(--white);
+      font-size: 1.02rem;
+      letter-spacing: 0;
+    }
+
+    .footer-column nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.72);
+      font-weight: 700;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      margin-top: 44px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .socials a {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: lowercase;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 680ms ease, transform 680ms ease;
+      transition-delay: var(--delay, 0ms);
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .float-soft {
+      animation: floatSoft 6s ease-in-out infinite;
+    }
+
+    @keyframes floatSoft {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (max-width: 1060px) {
+      .hero-layout,
+      .two-column,
+      .community-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-board {
+        max-width: 680px;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      .container,
+      .nav-wrap {
+        width: min(100% - 28px, var(--container));
+      }
+
+      .section {
+        padding: 86px 0;
+      }
+
+      .nav-wrap {
+        height: 74px;
+        grid-template-columns: auto auto;
+      }
+
+      .brand-logo {
+        width: 142px;
+        height: 48px;
+      }
+
+      .nav-links,
+      .header-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 86px 0;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head .section-copy {
+        margin-top: 18px;
+      }
+
+      .industry-grid,
+      .why-grid,
+      .testimonial-grid,
+      .steps-grid,
+      .opening-grid,
+      .benefit-grid,
+      .contact-details {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      h1,
+      .section-title {
+        overflow-wrap: anywhere;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.6rem, 12vw, 4.15rem);
+      }
+
+      .hero-board,
+      .card,
+      .community-panel {
+        border-radius: 18px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+
+      [data-reveal] {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="#home" aria-label="GuideX home">
+        <img class="brand-logo" src="guidex-logo.jpeg" alt="GuideX - The future starts here">
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#industries">Industries</a>
+        <a href="#openings">Openings</a>
+        <a href="#community">Community</a>
+        <a href="#employers">Hire With Us</a>
+      </nav>
+      <a class="btn btn-primary header-cta" href="#contact">Get In Touch</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      <a href="#about">About</a>
+      <a href="#industries">Industries</a>
+      <a href="#openings">Openings</a>
+      <a href="#community">Community</a>
+      <a href="#employers">Hire With Us</a>
+      <a class="mobile-cta" href="#contact">Get In Touch</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero section-grid" id="home">
+      <div class="container hero-layout">
+        <div data-reveal>
+          <span class="eyebrow">Zero fee recruitment</span>
+          <h1>Connecting India's talent with <span>real opportunities.</span></h1>
+          <p class="hero-copy">GuideX helps job seekers find roles that fit their skills, city, work mode, and growth goals. For employers, we deliver screened profiles without resume noise or public client-name disclosures.</p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="#openings">Explore Openings</a>
+            <a class="btn btn-outline" href="#employers">Hire With Us</a>
+          </div>
+          <div class="proof-pills" aria-label="GuideX promises">
+            <span class="proof-pill">Zero candidate fee</span>
+            <span class="proof-pill">Verified opportunities</span>
+            <span class="proof-pill">End-to-end guidance</span>
+          </div>
+        </div>
+
+        <aside class="hero-board float-soft" data-reveal style="--delay: 120ms" aria-label="Current opening status">
+          <article class="status-card highlight">
+            <small>Hiring now</small>
+            <h3>Work From Office</h3>
+            <p>Active across Gurugram, Noida, Mohali, Jaipur, Mumbai, and Bangalore.</p>
+          </article>
+          <article class="status-card">
+            <small>Subject to availability</small>
+            <h3>Work From Home</h3>
+            <p>PAN India remote opportunities open when role requirements and screening fit match.</p>
+          </article>
+          <div class="hero-note">
+            <h3>Candidate first. Always.</h3>
+            <p>No fees from candidates. No random interviews. No public client names on the website.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container two-column">
+        <div data-reveal>
+          <span class="eyebrow">About GuideX</span>
+          <h2 class="section-title">A recruitment firm built around fit, not pressure.</h2>
+          <div class="about-copy">
+            <p>GuideX started as a freelance recruitment effort and grew into a focused hiring company with one mission: guide India's unemployed youth toward the right career, not just any job.</p>
+            <p>Before suggesting a role, we understand skills, communication comfort, shift preference, salary expectation, city preference, and work mode. That is how guidance becomes practical.</p>
+          </div>
+        </div>
+        <div class="card quote-card" data-reveal style="--delay: 120ms">
+          <blockquote>We started with no office, no investors, and no safety net. Just a phone, discipline, and an obsession with placing the right people.</blockquote>
+          <cite>Gourav Pandey, Founder</cite>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="industries">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="eyebrow">Industries</span>
+            <h2 class="section-title">Focused hiring across practical job categories.</h2>
+          </div>
+          <p class="section-copy">Screened support for office and remote hiring across high-volume processes and specialist support roles.</p>
+        </div>
+        <div class="industry-grid">
+          <article class="card industry-card" data-reveal><h3>BPO</h3><p>Voice, blended, chat, email, and customer support roles across domestic and international processes.</p></article>
+          <article class="card industry-card" data-reveal style="--delay: 60ms"><h3>KPO</h3><p>Knowledge process roles requiring ownership, research orientation, and process discipline.</p></article>
+          <article class="card industry-card" data-reveal style="--delay: 120ms"><h3>US Healthcare</h3><p>Medical billing, AR calling, claims support, and healthcare operations profiles.</p></article>
+          <article class="card industry-card" data-reveal><h3>Travel</h3><p>Travel desk, reservations, itinerary support, and customer assistance hiring.</p></article>
+          <article class="card industry-card" data-reveal style="--delay: 60ms"><h3>Tech Support</h3><p>L1 and L2 troubleshooting talent for helpdesk, ticketing, and customer technical support.</p></article>
+          <article class="card industry-card" data-reveal style="--delay: 120ms"><h3>Virtual Assistant</h3><p>Remote-ready assistants for admin, coordination, research, operations, and backend support.</p></article>
+          <article class="card industry-card" data-reveal><h3>Insurance</h3><p>Policy servicing, claims coordination, customer support, and insurance operations roles.</p></article>
+          <article class="card industry-card" data-reveal style="--delay: 60ms"><h3>Legal Process</h3><p>Documentation, review, legal support, and process associate hiring for structured teams.</p></article>
+          <article class="card industry-card" data-reveal style="--delay: 120ms"><h3>Content and Writing</h3><p>Writers, editors, content operators, and support profiles with clarity and consistency.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="openings">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="eyebrow">Current openings</span>
+            <h2 class="section-title">Simple, honest opening status.</h2>
+          </div>
+          <p class="section-copy">Openings are always subject to availability and can close at any point. GuideX will guide candidates toward the best available fit after screening.</p>
+        </div>
+        <div class="opening-grid">
+          <article class="card opening-card" data-reveal>
+            <div>
+              <span class="opening-label">Hiring now</span>
+              <h3>Work From Office</h3>
+              <p>Active office hiring across the cities below for relevant process roles.</p>
+              <ul>
+                <li>Gurugram, Noida, Mohali</li>
+                <li>Jaipur, Mumbai, Bangalore</li>
+                <li>Schedule and salary depend on role requirements</li>
+              </ul>
+            </div>
+            <a class="btn btn-primary" href="#contact">Apply Now</a>
+          </article>
+          <article class="card opening-card" data-reveal style="--delay: 120ms">
+            <div>
+              <span class="opening-label">Remote availability</span>
+              <h3>Work From Home</h3>
+              <p>PAN India remote roles are active only when the requirement, candidate profile, and screening fit match.</p>
+              <ul>
+                <li>Subject to role availability</li>
+                <li>Remote-readiness screening required</li>
+                <li>Best suited for eligible support and assistant profiles</li>
+              </ul>
+            </div>
+            <a class="btn btn-outline" href="#contact">Check Availability</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="community">
+      <div class="container">
+        <div class="community-panel" data-reveal>
+          <div>
+            <span class="eyebrow">WhatsApp community</span>
+            <h2 class="section-title">Get opening alerts where candidates actually respond.</h2>
+            <p class="section-copy">Candidates can connect directly with GuideX for current opportunities, screening updates, and role availability.</p>
+            <div class="button-row" style="margin-top: 26px;">
+              <a class="btn btn-primary" href="https://wa.me/919821440366" target="_blank" rel="noopener">WhatsApp GuideX</a>
+            </div>
+          </div>
+          <div class="community-list" aria-label="Community benefits">
+            <div class="community-item">Opening updates across office and remote roles</div>
+            <div class="community-item">Quick screening coordination</div>
+            <div class="community-item">No candidate fee, ever</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="seekers">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="eyebrow">For job seekers</span>
+            <h2 class="section-title">Your next conversation should be useful.</h2>
+          </div>
+          <p class="section-copy">Share your city, work mode, experience, communication comfort, and salary expectation so GuideX can guide you toward relevant openings.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="card step-card" data-reveal><span class="step-number">1</span><h3>Share your profile</h3><p>Basic details, resume, preferred city, remote preference, and process experience.</p></article>
+          <article class="card step-card" data-reveal style="--delay: 80ms"><span class="step-number">2</span><h3>Complete screening</h3><p>We check fitment before suggesting roles so your time is respected.</p></article>
+          <article class="card step-card" data-reveal style="--delay: 160ms"><span class="step-number">3</span><h3>Move with clarity</h3><p>Interview coordination, role expectations, and follow-up stay transparent.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="employers">
+      <div class="container two-column">
+        <div data-reveal>
+          <span class="eyebrow">For employers</span>
+          <h2 class="section-title">Screened talent without resume noise.</h2>
+          <p class="section-copy">GuideX supports hiring teams with practical shortlists, industry-specific screening, and post-selection coordination. Partner names are kept confidential and are not disclosed on the website.</p>
+          <div class="benefit-grid">
+            <div class="card benefit-card">Fast shortlist focus</div>
+            <div class="card benefit-card">Industry-specific screening</div>
+            <div class="card benefit-card">Dedicated coordination</div>
+            <div class="card benefit-card">Post-placement follow-up</div>
+          </div>
+          <a class="btn btn-primary" href="#contact">Submit a Hiring Requirement</a>
+        </div>
+        <div class="card" data-reveal style="--delay: 120ms">
+          <h3 style="font-size: clamp(1.8rem, 4vw, 3rem);">What employers get</h3>
+          <p style="margin-top: 14px;">A recruitment partner that filters for role basics, communication, availability, work mode, salary alignment, and interview readiness before profiles reach your team.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="why">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="eyebrow">Why GuideX</span>
+            <h2 class="section-title">Professional, personal, built for repeat trust.</h2>
+          </div>
+        </div>
+        <div class="why-grid">
+          <article class="card why-card" data-reveal><h3>Guidance first</h3><p>Candidates are guided toward fitment, not pushed into whatever happens to be open.</p></article>
+          <article class="card why-card" data-reveal style="--delay: 60ms"><h3>Screened with context</h3><p>Profiles are filtered for communication, role basics, availability, and intent.</p></article>
+          <article class="card why-card" data-reveal style="--delay: 120ms"><h3>Fast without chaos</h3><p>Shortlists move quickly because the screening foundation is already in place.</p></article>
+          <article class="card why-card" data-reveal><h3>City plus remote reach</h3><p>Six active office hiring locations plus PAN India remote coverage subject to availability.</p></article>
+          <article class="card why-card" data-reveal style="--delay: 60ms"><h3>Confidential relationships</h3><p>Employer and candidate information is treated with discretion and respect.</p></article>
+          <article class="card why-card" data-reveal style="--delay: 120ms"><h3>Long-term thinking</h3><p>GuideX focuses on retention, repeat hiring trust, and better candidate outcomes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="eyebrow">Real feedback</span>
+            <h2 class="section-title">Candidate experience without public client names.</h2>
+          </div>
+        </div>
+        <div class="testimonial-grid">
+          <article class="card testimonial-card" data-reveal><div class="stars">5 / 5</div><blockquote>GuideX understood my preferred city and process background before suggesting interviews. That made the whole experience clearer.</blockquote><strong>Candidate placed in Gurugram</strong><span>Customer support process</span></article>
+          <article class="card testimonial-card" data-reveal style="--delay: 80ms"><div class="stars">5 / 5</div><blockquote>I was not pushed into a random role. The team explained what would fit my communication and salary expectation.</blockquote><strong>Candidate placed in Noida</strong><span>Healthcare operations process</span></article>
+          <article class="card testimonial-card" data-reveal style="--delay: 160ms"><div class="stars">5 / 5</div><blockquote>The screening call helped me understand where I stood and what kind of role I should target next.</blockquote><strong>Remote candidate</strong><span>Virtual assistant profile</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="contact">
+      <div class="container two-column">
+        <div data-reveal>
+          <span class="eyebrow">Get in touch</span>
+          <h2 class="section-title">Ready to start the conversation?</h2>
+          <p class="section-copy">Job seekers should share their profile and preferred work mode. Employers should share their hiring requirement and expected timeline.</p>
+          <div class="contact-details">
+            <div class="card contact-item"><span>Founder</span><strong>Gourav Pandey</strong></div>
+            <div class="card contact-item"><span>Phone</span><a href="tel:+919821440366">9821440366</a></div>
+            <div class="card contact-item"><span>Email</span><a href="mailto:gourav@guidex.in">gourav@guidex.in</a></div>
+            <div class="card contact-item"><span>WhatsApp</span><a href="https://wa.me/919821440366" target="_blank" rel="noopener">wa.me/919821440366</a></div>
+          </div>
+        </div>
+
+        <form class="card contact-form" id="contactForm" action="https://formsubmit.co/ajax/gourav.hr25@gmail.com" method="POST" data-reveal style="--delay: 120ms">
+          <input type="hidden" name="_subject" value="New GuideX Inquiry">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <div class="form-field">
+            <label for="persona">I am</label>
+            <select id="persona" name="persona" required>
+              <option value="">Select one</option>
+              <option value="Job Seeker">Job Seeker</option>
+              <option value="Employer">Employer</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" name="Full Name" type="text" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="Phone" type="tel" autocomplete="tel" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send Message</button>
+          <p class="form-status" id="formStatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img class="footer-logo" src="guidex-logo.jpeg" alt="GuideX - The future starts here">
+          <p>The future starts here.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Company</h3>
+          <nav aria-label="Company links">
+            <a href="#about">About</a>
+            <a href="#why">Why GuideX</a>
+            <a href="#testimonials">Testimonials</a>
+          </nav>
+        </div>
+        <div class="footer-column">
+          <h3>Services</h3>
+          <nav aria-label="Services links">
+            <a href="#industries">Industries</a>
+            <a href="#openings">Openings</a>
+            <a href="#community">Community</a>
+            <a href="#employers">Hire With Us</a>
+          </nav>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <nav aria-label="Contact links">
+            <a href="tel:+919821440366">9821440366</a>
+            <a href="mailto:gourav@guidex.in">gourav@guidex.in</a>
+            <a href="https://wa.me/919821440366" target="_blank" rel="noopener">WhatsApp</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>2025 GuideX. All rights reserved. Let's all grow together.</div>
+        <div class="socials" aria-label="Social links">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="https://wa.me/919821440366" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const navToggle = document.querySelector(".nav-toggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      const form = document.getElementById("contactForm");
+      const formStatus = document.getElementById("formStatus");
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      const closeMenu = () => {
+        document.body.classList.remove("menu-open");
+        mobileMenu.classList.remove("open");
+        mobileMenu.setAttribute("aria-hidden", "true");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Open menu");
+      };
+
+      navToggle.addEventListener("click", () => {
+        const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+        document.body.classList.toggle("menu-open", !isOpen);
+        mobileMenu.classList.toggle("open", !isOpen);
+        mobileMenu.setAttribute("aria-hidden", String(isOpen));
+        navToggle.setAttribute("aria-expanded", String(!isOpen));
+        navToggle.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
+      });
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const id = link.getAttribute("href").slice(1);
+          const target = document.getElementById(id);
+          if (!target) return;
+          event.preventDefault();
+          closeMenu();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          history.pushState(null, "", "#" + id);
+        });
+      });
+
+      const scrollToCurrentHash = () => {
+        if (!window.location.hash) return;
+        const target = document.getElementById(window.location.hash.slice(1));
+        if (!target) return;
+        const headerOffset = document.querySelector(".site-header").getBoundingClientRect().height + 16;
+        const top = Math.max(target.getBoundingClientRect().top + window.scrollY - headerOffset, 0);
+        window.scrollTo({ top, behavior: "auto" });
+      };
+
+      window.addEventListener("load", () => {
+        window.setTimeout(scrollToCurrentHash, 80);
+        window.setTimeout(scrollToCurrentHash, 360);
+      });
+
+      window.addEventListener("hashchange", () => {
+        window.setTimeout(scrollToCurrentHash, 0);
+      });
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.16,
+        rootMargin: "0px 0px -8% 0px"
+      });
+
+      document.querySelectorAll("[data-reveal]").forEach((element) => {
+        revealObserver.observe(element);
+      });
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        formStatus.textContent = "Sending your message...";
+        formStatus.className = "form-status";
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { "Accept": "application/json" }
+          });
+
+          if (!response.ok) {
+            throw new Error("FormSubmit request failed");
+          }
+
+          form.reset();
+          formStatus.textContent = "Your message has been submitted. GuideX will connect with you shortly.";
+          formStatus.className = "form-status success";
+        } catch (error) {
+          formStatus.textContent = "The form could not submit from this page. Please WhatsApp or email GuideX directly.";
+          formStatus.className = "form-status error";
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "Send Message";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
